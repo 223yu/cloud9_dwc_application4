@@ -25,6 +25,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = 'Follow'
+    @users = User.find(params[:id]).following
+    render 'follow'
+  end
+
+  def followers
+    @title = 'Follower'
+    @users = User.find(params[:id]).followers
+    render 'follow'
+  end
+
   private
 
     def user_params
